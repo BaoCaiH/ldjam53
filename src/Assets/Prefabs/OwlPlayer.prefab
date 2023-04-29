@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ddbcee9d94ac84784b006e0741a46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitObject: []
+  power: {x: 0, y: 0}
 --- !u!1 &8569758091158415296
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +405,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: cd93503b092bc4f30900f2be70912cb8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -432,7 +432,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -500,9 +500,9 @@ MonoBehaviour:
   angleGauge: {fileID: 4792158064662192278}
   angleMaxGauge: {fileID: 714947598087972321}
   forceGauge: {fileID: 2257647686196418182}
-  launchVector: {x: 7, y: 2}
   maxForce: 8
   walkSpeed: 5
+  power: {x: 0, y: 0}
 --- !u!114 &681045250423133726
 MonoBehaviour:
   m_ObjectHideFlags: 0
