@@ -29,6 +29,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        UpdateMovement();
+        UpdateFacingDirection();
+    }
+
+    private void UpdateMovement()
+    {
         rgbody.velocity = new Vector2(moveInput.x * walkSpeed, rgbody.velocity.y);
 
         if (hitboxZone.Collided)
@@ -42,10 +48,19 @@ public class PlayerController : MonoBehaviour
         rb.velocity = launchVector;
     }
 
+    private void UpdateFacingDirection()
+    {
+        if ((transform.localScale.x * moveInput.x) <= -1) {
+            // Player has changed direction so here we'll flip the scale.
+            transform.localScale *= new Vector2(-1, 1);
+        }
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
     }
+
 
     public void OnAttack(InputAction.CallbackContext context)
     {
