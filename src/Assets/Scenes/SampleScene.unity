@@ -935,6 +935,114 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_ActionId
+      value: b12e4132-3995-4430-bced-94e243946e3f
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionId
+      value: 05ce3d36-f7f3-4b2e-8745-9dca55805c18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: b2fc3eea-50b5-45e3-a27b-61befa1d57a1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionId
+      value: 91d6abd7-9ed1-49ea-974a-0e988112d61e
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: 0ce8fde8-f30a-49b8-8cf1-3b2c0e2df988
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: 4a58c894-d900-4401-b11d-b9508246d211
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
+      value: a769ee31-c290-4b26-a560-9d15788c5ecb
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionId
+      value: 143379e6-b7b8-441c-b1d5-4cb3463e70ee
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionId
+      value: 6d825171-2c2a-44c0-9df1-4b033701eca9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_ActionId
+      value: 79455c35-5d28-4ca7-8cc3-9b5497617927
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[10].m_ActionId
+      value: 2c0f4564-6765-4444-b2bf-8ae5cec460e4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_ActionId
+      value: 0c772868-82f7-4918-935d-b9ab1954a164
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_ActionId
+      value: 25ea1967-349a-4163-9c07-d9403ab74834
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_ActionName
+      value: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionName
+      value: Player/Look[/Mouse/delta,/Pen/delta]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: Player/Attack[/Mouse/leftButton,/Keyboard/z]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionName
+      value: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: UI/Submit[/Keyboard/enter]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: UI/Cancel[/Keyboard/escape]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
+      value: UI/Point[/Mouse/position,/Pen/position]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionName
+      value: UI/Click[/Mouse/leftButton,/Pen/tip]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionName
+      value: UI/ScrollWheel[/Mouse/scroll]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_ActionName
+      value: UI/MiddleClick[/Mouse/middleButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[10].m_ActionName
+      value: UI/RightClick[/Mouse/rightButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_ActionName
+      value: UI/TrackedDevicePosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602631429691708117, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_ActionName
+      value: UI/TrackedDeviceOrientation
+      objectReference: {fileID: 0}
     - target: {fileID: 8569758091158415296, guid: 793b404b9e3874eb89b5f6acb68efe83, type: 3}
       propertyPath: m_Name
       value: Player
