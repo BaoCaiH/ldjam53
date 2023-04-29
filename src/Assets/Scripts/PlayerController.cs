@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject angleGauge;
     [SerializeField] private GameObject angleMaxGauge;
     [SerializeField] private GameObject forceGauge;
-    private Rigidbody2D rgbody;
+    internal Rigidbody2D rgbody;
+    internal CapsuleCollider2D capCollider;
     internal Animator animator;
     internal Transform angleTransform;
     internal Transform forceTransform;
@@ -18,18 +19,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] 
     internal float maxForce = 7f;
 
-    private PlayerState currentState;
 
-    private bool isWindingUp = false;
-    private bool isCharging = false;
-    private float chargeAngle;
     public float walkSpeed = 5f;
     private Vector2 moveInput;
     public Vector2 power;
 
+    private PlayerState currentState;
+
     private void Awake()
     {
         rgbody = GetComponent<Rigidbody2D>();
+        capCollider = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
         hitboxZone = hitbox.GetComponent<PlayerAttackZone>();
         angleTransform = angleGauge.transform;
@@ -45,8 +45,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        UpdateMovement();
-        UpdateFacingDirection();
+        // UpdateMovement();
+        // UpdateFacingDirection();
+        UpdateState();
     }
 
     private void UpdateMovement()
@@ -62,27 +63,48 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void UpdateState()
+    {
+        PlayerState state = currentState.OnUpdate(this);
+        TransitionToState(state);
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
+        //if (!context.started) { return; }
+
         moveInput = context.ReadValue<Vector2>();
 
         PlayerState state = currentState.OnMove(context, this);
-        if (state != null)
-        {
-            state.OnEnter(this);
-            currentState = state;
-        }
+        TransitionToState(state);
     }
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (!context.started) { return; }
-        
-        PlayerState state = currentState.OnAttack(context, this);
-        if (state != null)
+        if (context.started)
         {
-            state.OnEnter(this);
-            currentState = state;
+            PlayerState state = currentState.OnAttack(context, this);
+            TransitionToState(state);
+        }
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.started) 
+        {
+            PlayerState state = currentState.OnJump(context, this);
+            TransitionToState(state);
+        }
+    }
+
+    private void TransitionToState(PlayerState newState)
+    {
+        if (newState != null)
+        {
+            currentState.OnExit(this);
+            newState.OnEnter(this);
+
+            currentState = newState;
         }
     }
 }
