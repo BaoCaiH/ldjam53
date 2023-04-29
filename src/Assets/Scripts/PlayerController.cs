@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Transform angleTransform;
     private Transform forceTransform;
-    private DetectionZone hitboxZone;
+    private PlayerAttackZone hitboxZone;
 
     [SerializeField] private float maxForce = 7f;
 
@@ -22,11 +22,13 @@ public class PlayerController : MonoBehaviour
     private float chargeAngle;
     public float walkSpeed = 5f;
     private Vector2 moveInput;
+    public Vector2 power;
 
     private void Awake()
     {
         rgbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        hitboxZone = hitbox.GetComponent<PlayerAttackZone>();
         angleTransform = angleGauge.transform;
         forceTransform = forceGauge.transform;
     }
@@ -80,12 +82,13 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            float chargeForce = maxForce * (angleTransform.localScale.x / 2);
-            launchVector = new Vector2(
+            float chargeForce = maxForce * (forceTransform.localScale.x / 2);
+            hitboxZone.power = new Vector2(
                 Mathf.Cos(Mathf.PI * chargeAngle / 180f) * chargeForce,
                 Mathf.Sin(Mathf.PI * chargeAngle / 180f) * chargeForce
                 );
             isWindingUp = false;
+            isCharging = false;
             anim.SetTrigger(AnimationStrings.attackTrigger);
         }
     }
