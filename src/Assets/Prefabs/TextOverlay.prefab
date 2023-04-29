@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 1834684220971038986}
   - component: {fileID: 7041050999237056909}
   - component: {fileID: 1034874300037701567}
-  m_Layer: 0
+  - component: {fileID: 5581553260718546010}
+  - component: {fileID: 3746514786301694532}
+  m_Layer: 10
   m_Name: TextOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +220,7 @@ TilemapRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.75, y: 0.75, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0.09375, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -282,19 +284,99 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1834684220971038986}
     m_ColliderPaths:
-    - - X: -40937500
-        Y: -937500
-      - X: 10937500
-        Y: -937500
-      - X: 10937500
+    - - X: 9687500
         Y: 10937500
-      - X: -40937500
+      - X: 312500
         Y: 10937500
+      - X: 312500
+        Y: -937500
+      - X: 9687500
+        Y: -937500
+    - - X: -31250000
+        Y: 10937500
+      - X: -38750000
+        Y: 10937500
+      - X: -38750000
+        Y: -937500
+      - X: -31250000
+        Y: -937500
+    - - X: -20312500
+        Y: 10937500
+      - X: -29687500
+        Y: 10937500
+      - X: -29687500
+        Y: -937500
+      - X: -20312500
+        Y: -937500
+    - - X: -10312500
+        Y: 10937500
+      - X: -19687500
+        Y: 10937500
+      - X: -19687500
+        Y: -937500
+      - X: -10312500
+        Y: -937500
+    - - X: -312500
+        Y: 10937500
+      - X: -9687500
+        Y: 10937500
+      - X: -9687500
+        Y: -937500
+      - X: -312500
+        Y: -937500
   m_CompositePaths:
     m_Paths:
-    - - {x: 1.0937207, y: -0.09375}
-      - {x: 1.0937207, y: 1.09375}
-      - {x: -4.09375, y: 1.0937207}
-      - {x: -4.093721, y: -0.09375}
+    - - {x: 0.96872073, y: -0.09375}
+      - {x: 0.96872073, y: 1.09375}
+      - {x: 0.03125, y: 1.0937207}
+      - {x: 0.0312793, y: -0.09375}
+    - - {x: -0.0312793, y: -0.09375}
+      - {x: -0.0312793, y: 1.09375}
+      - {x: -0.96875, y: 1.0937207}
+      - {x: -0.96872073, y: -0.09375}
+    - - {x: -1.0312793, y: -0.09375}
+      - {x: -1.0312793, y: 1.09375}
+      - {x: -1.96875, y: 1.0937207}
+      - {x: -1.9687208, y: -0.09375}
+    - - {x: -2.0312793, y: -0.09375}
+      - {x: -2.0312793, y: 1.09375}
+      - {x: -2.96875, y: 1.0937207}
+      - {x: -2.968721, y: -0.09375}
+    - - {x: -3.1250293, y: -0.09375}
+      - {x: -3.1250293, y: 1.09375}
+      - {x: -3.875, y: 1.0937207}
+      - {x: -3.874971, y: -0.09375}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!95 &5581553260718546010
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3192153536349721520}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 052bd748f67964725bc3541ab74dbb08, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &3746514786301694532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3192153536349721520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af2e1e15473174eb58057288dc078046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
