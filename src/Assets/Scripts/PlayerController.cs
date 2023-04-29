@@ -10,12 +10,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject angleMaxGauge;
     [SerializeField] private GameObject forceGauge;
     private Rigidbody2D rgbody;
-    private Animator anim;
-    private Transform angleTransform;
-    private Transform forceTransform;
-    private PlayerAttackZone hitboxZone;
+    internal Animator animator;
+    internal Transform angleTransform;
+    internal Transform forceTransform;
+    internal PlayerAttackZone hitboxZone;
 
-    [SerializeField] private float maxForce = 7f;
+    [SerializeField] 
+    internal float maxForce = 7f;
+
+    private PlayerState currentState;
 
     private bool isWindingUp = false;
     private bool isCharging = false;
@@ -27,10 +30,11 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rgbody = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         hitboxZone = hitbox.GetComponent<PlayerAttackZone>();
         angleTransform = angleGauge.transform;
         forceTransform = forceGauge.transform;
+        currentState = new IdlingState();
     }
 
     // Start is called before the first frame update
@@ -61,35 +65,24 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+
+        PlayerState state = currentState.OnMove(context, this);
+        if (state != null)
+        {
+            state.OnEnter(this);
+            currentState = state;
+        }
     }
 
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (!context.started) { return; }
-        if (!isWindingUp)
+        
+        PlayerState state = currentState.OnAttack(context, this);
+        if (state != null)
         {
-            isWindingUp = true;
-            anim.SetTrigger(AnimationStrings.attackWindUpTrigger);
-        }
-        else if (!isCharging)
-        {
-            chargeAngle = Quaternion.Angle(
-                new Quaternion(0f, 0f, 0f, angleTransform.localRotation.w),
-                angleTransform.localRotation
-            );
-            isCharging = true;
-            anim.SetTrigger(AnimationStrings.attackChargeTrigger);
-        }
-        else
-        {
-            float chargeForce = maxForce * (forceTransform.localScale.x / 2);
-            hitboxZone.power = new Vector2(
-                Mathf.Cos(Mathf.PI * chargeAngle / 180f) * chargeForce,
-                Mathf.Sin(Mathf.PI * chargeAngle / 180f) * chargeForce
-                );
-            isWindingUp = false;
-            isCharging = false;
-            anim.SetTrigger(AnimationStrings.attackTrigger);
+            state.OnEnter(this);
+            currentState = state;
         }
     }
 }
