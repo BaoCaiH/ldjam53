@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rgbody = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -49,9 +48,6 @@ public class PlayerController : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            anim.SetTrigger(AnimationStrings.attackTrigger);
-        }
+        
     }
 }

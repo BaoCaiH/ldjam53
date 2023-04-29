@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ddbcee9d94ac84784b006e0741a46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitObject: []
+  power: {x: 7, y: 2}
 --- !u!1 &8569758091158415296
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 8569758091158415300}
   - component: {fileID: 4427319540008139775}
   - component: {fileID: 7644894829710634135}
+  - component: {fileID: 6701603232914153396}
   - component: {fileID: 681045250423133726}
   m_Layer: 6
   m_Name: OwlPlayer
@@ -241,9 +242,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9abde174e2d94249abfdefb6f571ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitbox: {fileID: 6706549129458491924}
-  launchVector: {x: 7, y: 2}
   walkSpeed: 5
+--- !u!114 &6701603232914153396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569758091158415296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0708027364b7ba94bae2b07b1cade29e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &681045250423133726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +294,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6701603232914153396}
+        m_TargetAssemblyTypeName: PlayerAnimController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 942352d5-d674-45c0-8073-5a07820b97b9
     m_ActionName: Player/Move
   - m_PersistentCalls:
@@ -293,6 +316,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7644894829710634135}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6701603232914153396}
+        m_TargetAssemblyTypeName: PlayerAnimController, Assembly-CSharp
         m_MethodName: OnAttack
         m_Mode: 0
         m_Arguments:
