@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8870209571989188639}
   - component: {fileID: 383466626725426562}
-  m_Layer: 0
+  - component: {fileID: 8564890717296669168}
+  m_Layer: 8
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,10 +40,10 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6706549129458491924}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -58,6 +59,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3}
   m_EdgeRadius: 0
+--- !u!114 &8564890717296669168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6706549129458491924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2fb228118f741818482e1386c80a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitObject: []
 --- !u!1 &8569758091158415296
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +87,7 @@ GameObject:
   - component: {fileID: 4427319540008139775}
   - component: {fileID: 7644894829710634135}
   - component: {fileID: 681045250423133726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OwlPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +181,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &8569758091158415300
 BoxCollider2D:
@@ -185,7 +199,7 @@ BoxCollider2D:
   m_Offset: {x: -0.05, y: 0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.2}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -227,6 +241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9abde174e2d94249abfdefb6f571ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitbox: {fileID: 6706549129458491924}
+  launchVector: {x: 7, y: 2}
   walkSpeed: 5
 --- !u!114 &681045250423133726
 MonoBehaviour:
