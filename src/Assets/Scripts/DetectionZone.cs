@@ -5,11 +5,9 @@ using UnityEngine;
 public class DetectionZone : MonoBehaviour
 {
     public List<Collider2D> hitObject = new List<Collider2D>();
-    private Collider2D hitbox;
-
-    private void Awake()
+    public Rigidbody2D Collided
     {
-        hitbox = GetComponent<Collider2D>();
+        get { return hitObject.Count > 0 ? hitObject[0].attachedRigidbody : null; }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

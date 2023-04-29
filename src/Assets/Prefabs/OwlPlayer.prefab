@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 8569758091158415300}
   - component: {fileID: 4427319540008139775}
   - component: {fileID: 7644894829710634135}
+  - component: {fileID: 681045250423133726}
   m_Layer: 6
   m_Name: OwlPlayer
   m_TagString: Untagged
@@ -240,6 +241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9abde174e2d94249abfdefb6f571ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitbox: {fileID: 6706549129458491924}
+  launchVector: {x: 7, y: 2}
   walkSpeed: 5
 --- !u!114 &681045250423133726
 MonoBehaviour:
