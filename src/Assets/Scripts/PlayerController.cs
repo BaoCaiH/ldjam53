@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     private Transform forceTransform;
     private DetectionZone hitboxZone;
 
-    [SerializeField] private Vector2 launchVector = new Vector2(7f, 2f);
     [SerializeField] private float maxForce = 7f;
 
     private bool isWindingUp = false;
@@ -28,7 +27,6 @@ public class PlayerController : MonoBehaviour
     {
         rgbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        hitboxZone = hitbox.GetComponent<DetectionZone>();
         angleTransform = angleGauge.transform;
         forceTransform = forceGauge.transform;
     }
@@ -41,17 +39,21 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rgbody.velocity = new Vector2(moveInput.x * walkSpeed, rgbody.velocity.y);
-
-        if (hitboxZone.Collided)
-        {
-            launch(hitboxZone.Collided);
-        }
+        UpdateMovement();
+        UpdateFacingDirection();
     }
 
-    private void launch(Rigidbody2D rb)
+    private void UpdateMovement()
     {
-        rb.velocity = launchVector;
+        rgbody.velocity = new Vector2(moveInput.x * walkSpeed, rgbody.velocity.y);
+    }
+
+    private void UpdateFacingDirection()
+    {
+        if ((transform.localScale.x * moveInput.x) <= -1) {
+            // Player has changed direction so here we'll flip the scale.
+            transform.localScale *= new Vector2(-1, 1);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -73,14 +75,12 @@ public class PlayerController : MonoBehaviour
                 new Quaternion(0f, 0f, 0f, angleTransform.localRotation.w),
                 angleTransform.localRotation
             );
-            Debug.Log(chargeAngle);
             isCharging = true;
             anim.SetTrigger(AnimationStrings.attackChargeTrigger);
         }
         else
         {
             float chargeForce = maxForce * (angleTransform.localScale.x / 2);
-            Debug.Log(chargeForce);
             launchVector = new Vector2(
                 Mathf.Cos(Mathf.PI * chargeAngle / 180f) * chargeForce,
                 Mathf.Sin(Mathf.PI * chargeAngle / 180f) * chargeForce
