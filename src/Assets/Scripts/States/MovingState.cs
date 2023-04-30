@@ -7,13 +7,10 @@ class MovingState: PlayerState
     private Vector2 currentMoveInput;
     private bool isMoving => currentMoveInput.x != 0;
 
-    internal MovingState(Vector2 moveInput)
-    {
-        currentMoveInput = moveInput;
-    }
-
     public void OnEnter(PlayerController player)
     {
+        currentMoveInput = player.input.actions["Move"].ReadValue<Vector2>();
+
         Debug.Log($"Enter [Moving State] with move {currentMoveInput}!");
 
         // Set facing direction.
@@ -32,9 +29,10 @@ class MovingState: PlayerState
         Debug.Log($"[Moving State] OnMove: started->{context.started}, performed->{context.performed}, canceled->{context.canceled}");
 
         currentMoveInput = context.ReadValue<Vector2>();
+
         if (currentMoveInput.y > 0)
         {
-            return new JumpingState(currentMoveInput);
+            return new JumpingState();
         }
         else if(currentMoveInput.x != 0) 
         {
@@ -53,7 +51,7 @@ class MovingState: PlayerState
 
     public PlayerState OnJump(InputAction.CallbackContext context, PlayerController player)
     {
-        return new JumpingState(currentMoveInput);
+        return new JumpingState();
     }
 
     public PlayerState OnUpdate(PlayerController player)

@@ -12,15 +12,7 @@ class IdlingState: PlayerState
     {
         Debug.Log($"[Idling State] OnMove: started->{context.started}, performed->{context.performed}, canceled->{context.canceled}");
 
-        Vector2 moveInput = context.ReadValue<Vector2>();
-        if (moveInput.x != 0) 
-        {
-            return new MovingState(moveInput);
-        }
-        else
-        {
-            return null;
-        }
+        return new MovingState();
     }
 
     public PlayerState OnAttack(InputAction.CallbackContext context, PlayerController player)
@@ -32,7 +24,7 @@ class IdlingState: PlayerState
     {
         Debug.Log("IdlingState OnJump...");
 
-        return new JumpingState(Vector2.zero);
+        return new JumpingState();
     }
 
     public PlayerState OnUpdate(PlayerController player)

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-class AttackingState: PlayerState 
+class AttackingState : PlayerState
 {
     // private float chargeAngle;
 
@@ -25,7 +25,7 @@ class AttackingState: PlayerState
         //     new Quaternion(0f, 0f, 0f, player.angleTransform.localRotation.w),
         //     player.angleTransform.localRotation
         // );      
-        
+
         // float chargeForce = player.maxForce * (player.forceTransform.localScale.x / 2);
         // player.hitboxZone.power = new Vector2(
         //     Mathf.Cos(Mathf.PI * chargeAngle / 180f) * chargeForce,
@@ -41,7 +41,8 @@ class AttackingState: PlayerState
 
     public PlayerState OnUpdate(PlayerController player)
     {
-        return new IdlingState();
+        bool isMoving = player.input.actions["Move"].inProgress;
+        return isMoving ? new MovingState() : new IdlingState();
     }
 
     public void OnExit(PlayerController player)
