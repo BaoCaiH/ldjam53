@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 4427319540008139775}
   - component: {fileID: 681045250423133726}
   - component: {fileID: 7644894829710634135}
+  - component: {fileID: 3138242808286967346}
   - component: {fileID: 5164352336401897211}
   - component: {fileID: 4035859826720412259}
   m_Layer: 6
@@ -636,7 +637,40 @@ MonoBehaviour:
   jumpForce: 11
   walkSpeed: 4
   runSpeed: 8
+  currentSpeed: 4
   power: {x: 0, y: 0}
+--- !u!114 &3138242808286967346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569758091158415296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333bb37944bd82647a157d16eec4e1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  groundDistance: 0.05
+  wallDistance: 0.2
+  ceilingDistance: 0.05
+  _isGrounded: 1
+  _isOnWall: 1
+  _isOnCeiling: 1
 --- !u!82 &5164352336401897211
 AudioSource:
   m_ObjectHideFlags: 0
