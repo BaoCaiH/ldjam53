@@ -27,7 +27,8 @@ class JumpingState : PlayerState
 
     public PlayerState OnAttack(InputAction.CallbackContext context, PlayerController player)
     {
-        return null;
+        //return null;
+        return new AttackingState();
     }
 
     public PlayerState OnJump(InputAction.CallbackContext context, PlayerController player)
