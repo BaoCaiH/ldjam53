@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] 
     internal float maxForce = 7f;
 
-
     public float walkSpeed = 5f;
     private Vector2 moveInput;
     public Vector2 power;
