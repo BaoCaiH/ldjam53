@@ -25,7 +25,7 @@ class IdlingState: PlayerState
     public PlayerState OnRun(InputAction.CallbackContext context, PlayerController player)
     {
         Debug.Log($"[Idling State] OnRun: started->{context.started}, performed->{context.performed}, canceled->{context.canceled}");
-        return new RunningState();
+        return context.canceled ? new MovingState() : new RunningState();
     }
 
     public PlayerState OnAttack(InputAction.CallbackContext context, PlayerController player)
