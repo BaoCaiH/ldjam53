@@ -613,5 +613,4 @@ MonoBehaviour:
   angleMaxGauge: {fileID: 714947598087972321}
   forceGauge: {fileID: 2257647686196418182}
   maxForce: 8
-  walkSpeed: 5
   power: {x: 0, y: 0}
