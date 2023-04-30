@@ -6,7 +6,7 @@ class RunningState: MovingState
     public override void OnEnter(PlayerController player)
     {
         Debug.Log("Enter [Running State]!");
-        //base.OnEnter(player);
+        base.OnEnter(player);
         player.animator.SetBool(AnimationParams.RUN_FLAG, true);
     }
 
@@ -24,7 +24,8 @@ class RunningState: MovingState
 
     public override PlayerState OnRun(InputAction.CallbackContext context, PlayerController player)
     {
-        if (!context.canceled)
+        Debug.Log($"[Running State] OnRun: started->{context.started}, performed->{context.performed}, canceled->{context.canceled}");
+        if (context.canceled)
         {
             // bool isMoving = player.input.actions["Move"].inProgress;
             // return isMoving ? new MovingState() : new IdlingState();
