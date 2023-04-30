@@ -11,8 +11,21 @@ class IdlingState: PlayerState
     public PlayerState OnMove(InputAction.CallbackContext context, PlayerController player)
     {
         Debug.Log($"[Idling State] OnMove: started->{context.started}, performed->{context.performed}, canceled->{context.canceled}");
+        bool isRunning = player.input.actions["Run"].inProgress;
+        if (isRunning)
+        {
+            return new RunningState();
+        }
+        else
+        {
+            return new MovingState();
+        }
+    }
 
-        return new MovingState();
+    public PlayerState OnRun(InputAction.CallbackContext context, PlayerController player)
+    {
+        Debug.Log($"[Idling State] OnRun: started->{context.started}, performed->{context.performed}, canceled->{context.canceled}");
+        return new RunningState();
     }
 
     public PlayerState OnAttack(InputAction.CallbackContext context, PlayerController player)

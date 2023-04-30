@@ -19,6 +19,11 @@ class AttackingState : PlayerState
         return null;
     }
 
+    public PlayerState OnRun(InputAction.CallbackContext context, PlayerController player)
+    {
+        return null;
+    }
+
     public PlayerState OnAttack(InputAction.CallbackContext context, PlayerController player)
     {
         // chargeAngle = Quaternion.Angle(
