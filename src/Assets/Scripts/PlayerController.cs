@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     internal Transform angleTransform;
     internal Transform forceTransform;
     internal PlayerAttackZone hitboxZone;
+    internal TouchingDirections touchingDirs;
 
     [SerializeField] internal float maxForce = 7f;
     [SerializeField] internal float jumpForce = 10f;
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         input = GetComponent<PlayerInput>();
         hitboxZone = hitbox.GetComponent<PlayerAttackZone>();
+        touchingDirs = GetComponent<TouchingDirections>();
         angleTransform = angleGauge.transform;
         forceTransform = forceGauge.transform;
         inputProcessors = new List<PlayerInputProcessor>();
@@ -114,8 +116,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            bool exist = inputProcessors.Exists((processor) => processor is JumpInputProcessor);
-            if (!exist)
+            if (touchingDirs.IsGrounded)
             {
                 PlayerInputProcessor newState = new JumpInputProcessor();
                 newState.Enter(this);
