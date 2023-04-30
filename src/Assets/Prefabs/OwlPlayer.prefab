@@ -335,10 +335,10 @@ GameObject:
   - component: {fileID: 8569758091158415301}
   - component: {fileID: 8569758091158415302}
   - component: {fileID: 8569758091158415291}
-  - component: {fileID: 8569758091158415300}
+  - component: {fileID: 4443761067780125735}
   - component: {fileID: 4427319540008139775}
-  - component: {fileID: 7644894829710634135}
   - component: {fileID: 681045250423133726}
+  - component: {fileID: 7644894829710634135}
   m_Layer: 6
   m_Name: OwlPlayer
   m_TagString: Untagged
@@ -438,8 +438,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &8569758091158415300
-BoxCollider2D:
+--- !u!70 &4443761067780125735
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -451,19 +451,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05, y: 0.2}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.2}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.8}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.027264833, y: 0.17049101}
+  m_Size: {x: 0.4001689, y: 0.740982}
+  m_Direction: 0
 --- !u!95 &4427319540008139775
 Animator:
   serializedVersion: 5
@@ -484,25 +474,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &7644894829710634135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8569758091158415296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9abde174e2d94249abfdefb6f571ae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitbox: {fileID: 6706549129458491924}
-  angleGauge: {fileID: 4792158064662192278}
-  angleMaxGauge: {fileID: 714947598087972321}
-  forceGauge: {fileID: 2257647686196418182}
-  maxForce: 8
-  walkSpeed: 5
-  power: {x: 0, y: 0}
 --- !u!114 &681045250423133726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,18 +513,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerAnimController, Assembly-CSharp
-        m_MethodName: OnMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_ActionId: 942352d5-d674-45c0-8073-5a07820b97b9
     m_ActionName: Player/Move
   - m_PersistentCalls:
@@ -564,18 +523,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7644894829710634135}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnAttack
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerAnimController, Assembly-CSharp
         m_MethodName: OnAttack
         m_Mode: 0
         m_Arguments:
@@ -628,8 +575,43 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 89303f0c-b4d1-4bd7-8354-e839f964f360
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7644894829710634135}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 214a5055-8993-4e59-9a4f-c1b48663e51d
+    m_ActionName: Player/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7644894829710634135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569758091158415296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9abde174e2d94249abfdefb6f571ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitbox: {fileID: 6706549129458491924}
+  angleGauge: {fileID: 4792158064662192278}
+  angleMaxGauge: {fileID: 714947598087972321}
+  forceGauge: {fileID: 2257647686196418182}
+  maxForce: 8
+  walkSpeed: 5
+  power: {x: 0, y: 0}
