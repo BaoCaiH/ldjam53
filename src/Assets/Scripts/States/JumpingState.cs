@@ -23,7 +23,7 @@ class JumpingState : PlayerState
     {
         Debug.Log("Enter Jumping State!");
 
-        jumpForce = 6f;
+        jumpForce = 10f;
         player.animator.SetBool(AnimationParams.JUMP_FLAG, true);
     }
 
@@ -47,7 +47,7 @@ class JumpingState : PlayerState
     {
         if (jumpForce != 0)
         {
-            player.rgbody.velocity = new Vector2(player.rgbody.velocity.x / 2, jumpForce);
+            player.rgbody.velocity = new Vector2(player.rgbody.velocity.x, jumpForce);
             jumpForce = 0f;
         }
 
