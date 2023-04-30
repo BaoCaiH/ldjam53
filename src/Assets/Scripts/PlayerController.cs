@@ -20,8 +20,6 @@ public class PlayerController : MonoBehaviour
 
     private PlayerState currentState;
 
-    private bool isWindingUp = false;
-    private bool isCharging = false;
     private float chargeAngle;
     public float walkSpeed = 5f;
     private Vector2 moveInput;
