@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] 
     internal float maxForce = 7f;
 
-    public float walkSpeed = 5f;
     private Vector2 moveInput;
     public Vector2 power;
 
@@ -44,22 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // UpdateMovement();
-        // UpdateFacingDirection();
         UpdateState();
-    }
-
-    private void UpdateMovement()
-    {
-        rgbody.velocity = new Vector2(moveInput.x * walkSpeed, rgbody.velocity.y);
-    }
-
-    private void UpdateFacingDirection()
-    {
-        if ((transform.localScale.x * moveInput.x) <= -1) {
-            // Player has changed direction so here we'll flip the scale.
-            transform.localScale *= new Vector2(-1, 1);
-        }
     }
 
     private void UpdateState()
@@ -70,10 +54,6 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        //if (!context.started) { return; }
-
-        moveInput = context.ReadValue<Vector2>();
-
         PlayerState state = currentState.OnMove(context, this);
         TransitionToState(state);
     }
