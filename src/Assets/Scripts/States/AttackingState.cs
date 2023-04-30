@@ -7,6 +7,8 @@ class AttackingState: PlayerState
 
     public void OnEnter(PlayerController player)
     {
+        player.hitboxZone.power = new Vector2(7f, 2f);
+
         player.animator.SetTrigger(AnimationParams.ATTACK_TRIGGER);
     }
 
@@ -27,10 +29,21 @@ class AttackingState: PlayerState
         //     Mathf.Cos(Mathf.PI * chargeAngle / 180f) * chargeForce,
         //     Mathf.Sin(Mathf.PI * chargeAngle / 180f) * chargeForce
         // );
-        player.hitboxZone.power = new Vector2(7f, 2f);
+        return null;
+    }
 
-        player.animator.SetTrigger(AnimationParams.ATTACK_TRIGGER);
+    public PlayerState OnJump(InputAction.CallbackContext context, PlayerController player)
+    {
+        return null;
+    }
 
+    public PlayerState OnUpdate(PlayerController player)
+    {
         return new IdlingState();
+    }
+
+    public void OnExit(PlayerController player)
+    {
+
     }
 }

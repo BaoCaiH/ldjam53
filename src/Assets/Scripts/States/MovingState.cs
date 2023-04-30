@@ -3,18 +3,37 @@ using UnityEngine.InputSystem;
 
 class MovingState: PlayerState 
 {
+    private Vector2 currentMoveInput;
+    private bool isMoving => currentMoveInput.x != 0;
+
+    private float walkSpeed = 3f;
+
+    internal MovingState(Vector2 moveInput)
+    {
+        currentMoveInput = moveInput;
+    }
+
     public void OnEnter(PlayerController player)
     {
+        Debug.Log($"Enter [Moving State] with move {currentMoveInput}!");
+        
+        // Set facing direction.
+        if ((player.transform.localScale.x * currentMoveInput.x) <= -1) {
+            // Player has changed direction so here we'll flip the scale.
+            player.transform.localScale *= new Vector2(-1, 1);
+        }
+
         player.animator.SetBool(AnimationParams.MOVE_FLAG, true);
     }
 
     public PlayerState OnMove(InputAction.CallbackContext context, PlayerController player) 
     {
-        Vector2 moveInput = context.ReadValue<Vector2>();
+        Debug.Log($"[Moving State] OnMove: started->{context.started}, performed->{context.performed}, canceled->{context.canceled}");
 
-        if (moveInput.x != 0) 
+        currentMoveInput = context.ReadValue<Vector2>();
+        if (currentMoveInput.x != 0) 
         {
-            return new MovingState();
+            return null;
         }
         else
         {
@@ -25,5 +44,28 @@ class MovingState: PlayerState
     public PlayerState OnAttack(InputAction.CallbackContext context, PlayerController player)
     {
         return new AttackingState();
+    }
+
+    public PlayerState OnJump(InputAction.CallbackContext context, PlayerController player)
+    {
+        return new JumpingState(currentMoveInput);
+    }
+
+    public PlayerState OnUpdate(PlayerController player)
+    {
+        if (isMoving)
+        {
+            player.rgbody.velocity = new Vector2(currentMoveInput.x * walkSpeed, player.rgbody.velocity.y);
+            return null;
+        }
+        else 
+        {
+            return new IdlingState();
+        }
+    }
+
+    public void OnExit(PlayerController player)
+    {
+        player.animator.SetBool(AnimationParams.MOVE_FLAG, false);
     }
 }
