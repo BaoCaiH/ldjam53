@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     internal Rigidbody2D rgbody;
     internal CapsuleCollider2D capCollider;
     internal Animator animator;
+    internal PlayerInput input;
     internal Transform angleTransform;
     internal Transform forceTransform;
     internal PlayerAttackZone hitboxZone;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
         rgbody = GetComponent<Rigidbody2D>();
         capCollider = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
+        input = GetComponent<PlayerInput>();
         hitboxZone = hitbox.GetComponent<PlayerAttackZone>();
         angleTransform = angleGauge.transform;
         forceTransform = forceGauge.transform;

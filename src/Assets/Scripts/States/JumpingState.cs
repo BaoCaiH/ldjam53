@@ -5,33 +5,23 @@ class JumpingState : PlayerState
 {
     private float jumpForce;
 
-    // Player can still hold move input while jumping, which can be used to decide the next state.
-    private Vector2 currentMoveInput;
-    private bool isMoving => currentMoveInput.x != 0;
-
     private ContactFilter2D castFilter;
 
     private float groundDistance = 0.05f;
     private RaycastHit2D[] groundHits = new RaycastHit2D[5];
-
-    internal JumpingState(Vector2 moveInput)
-    {
-        currentMoveInput = moveInput;
-    }
 
     public void OnEnter(PlayerController player)
     {
         Debug.Log("Enter Jumping State!");
 
         jumpForce = player.jumpForce;
-        player.animator.SetBool(AnimationParams.JUMP_FLAG, true);
 
+        player.animator.SetBool(AnimationParams.JUMP_FLAG, true);
         player.sfxJump.Play();
     }
 
     public PlayerState OnMove(InputAction.CallbackContext context, PlayerController player)
     {
-        currentMoveInput = context.ReadValue<Vector2>();
         return null;
     }
 
@@ -63,14 +53,8 @@ class JumpingState : PlayerState
 
             if (isGrounded)
             {
-                if (isMoving)
-                {
-                    return new MovingState(currentMoveInput);
-                }
-                else
-                {
-                    return new IdlingState();
-                }
+                bool isMoving = player.input.actions["Move"].inProgress;
+                return isMoving ? new MovingState() : new IdlingState();
             }
             else
             {
