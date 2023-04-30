@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] internal float jumpForce = 10f;
     [SerializeField] internal float walkSpeed = 4f;
 
+    internal Vector2 facing = new(1f, 1f);
     private Vector2 moveInput;
     public Vector2 power;
 
@@ -57,8 +58,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        Debug.Log("continue: " + context.ReadValue<Vector2>());
         PlayerState state = currentState.OnMove(context, this);
+
         TransitionToState(state);
     }
 

@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 class MovingState: PlayerState 
 {
+    private Vector2 flipper = new(-1f, 1f);
     private Vector2 currentMoveInput;
     private bool isMoving => currentMoveInput.x != 0;
 
@@ -14,11 +15,13 @@ class MovingState: PlayerState
     public void OnEnter(PlayerController player)
     {
         Debug.Log($"Enter [Moving State] with move {currentMoveInput}!");
-        
+
         // Set facing direction.
-        if ((player.transform.localScale.x * currentMoveInput.x) <= -1) {
+        if ((player.transform.localScale.x * currentMoveInput.x) <= -1)
+        {
             // Player has changed direction so here we'll flip the scale.
-            player.transform.localScale *= new Vector2(-1, 1);
+            player.transform.localScale *= flipper;
+            player.facing *= flipper;
         }
 
         player.animator.SetBool(AnimationParams.MOVE_FLAG, true);
@@ -29,7 +32,11 @@ class MovingState: PlayerState
         Debug.Log($"[Moving State] OnMove: started->{context.started}, performed->{context.performed}, canceled->{context.canceled}");
 
         currentMoveInput = context.ReadValue<Vector2>();
-        if (currentMoveInput.x != 0) 
+        if (currentMoveInput.y > 0)
+        {
+            return new JumpingState(currentMoveInput);
+        }
+        else if(currentMoveInput.x != 0) 
         {
             return null;
         }
