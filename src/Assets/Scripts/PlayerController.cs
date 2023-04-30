@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] internal float maxForce = 7f;
     [SerializeField] internal float jumpForce = 10f;
     [SerializeField] internal float walkSpeed = 4f;
+    [SerializeField] internal float runSpeed = 8f;
 
     internal Vector2 facing = new(1f, 1f);
     private Vector2 moveInput;
@@ -76,11 +77,17 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started) 
+        if (context.started)
         {
             PlayerState state = currentState.OnJump(context, this);
             TransitionToState(state);
         }
+    }
+
+    public void OnRun(InputAction.CallbackContext context)
+    {
+        PlayerState state = currentState.OnRun(context, this);
+        TransitionToState(state);
     }
 
     private void TransitionToState(PlayerState newState)
