@@ -53,6 +53,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 266219735
+    locked: 0
+  - name: Object
+    uniqueID: 1402311951
+    locked: 0
   - name: Overlay
     uniqueID: 252334097
     locked: 0
