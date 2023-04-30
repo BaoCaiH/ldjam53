@@ -23,12 +23,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] internal float jumpForce = 10f;
     [SerializeField] internal float walkSpeed = 4f;
     [SerializeField] internal float runSpeed = 8f;
+    [SerializeField] internal float currentSpeed = 4f;
 
     internal Vector2 facing = new(1f, 1f);
     private Vector2 moveInput;
     public Vector2 power;
 
-    private PlayerState currentState;
+    private List<PlayerInputProcessor> inputProcessors;
 
     private void Awake()
     {
@@ -39,7 +40,7 @@ public class PlayerController : MonoBehaviour
         hitboxZone = hitbox.GetComponent<PlayerAttackZone>();
         angleTransform = angleGauge.transform;
         forceTransform = forceGauge.transform;
-        currentState = new IdlingState();
+        inputProcessors = new List<PlayerInputProcessor>();
     }
 
     // Start is called before the first frame update
@@ -50,54 +51,116 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        UpdateState();
-    }
-
-    private void UpdateState()
-    {
-        PlayerState state = currentState.OnUpdate(this);
-        TransitionToState(state);
+        for (int i = inputProcessors.Count - 1; i >= 0; i--)
+        {
+            if (!inputProcessors[i].Process(this))
+            {
+                break;
+            }
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        PlayerState state = currentState.OnMove(context, this);
+        if (context.performed)
+        {
+            PlayerInputProcessor newState = new MoveInputProcessor(context.ReadValue<Vector2>());
+            newState.Enter(this);
 
-        TransitionToState(state);
+            inputProcessors.Add(newState);
+        }
+        else if (context.canceled)
+        {
+            inputProcessors.RemoveAll((state) => {
+                if (state is MoveInputProcessor)
+                {
+                    state.Exit(this);
+                    return true;
+                }
+                else 
+                {
+                    return false;
+                }
+            });
+        }
     }
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
-            PlayerState state = currentState.OnAttack(context, this);
-            TransitionToState(state);
+            PlayerInputProcessor newState = new AttackInputProcessor();
+            newState.Enter(this);
+
+            inputProcessors.Add(newState);
+        }
+        else if (context.canceled)
+        {
+            inputProcessors.RemoveAll((state) => {
+                if (state is AttackInputProcessor)
+                {
+                    state.Exit(this);
+                    return true;
+                }
+                else 
+                {
+                    return false;
+                }
+            });
         }
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
-            PlayerState state = currentState.OnJump(context, this);
-            TransitionToState(state);
+            bool exist = inputProcessors.Exists((processor) => processor is JumpInputProcessor);
+            if (!exist)
+            {
+                PlayerInputProcessor newState = new JumpInputProcessor();
+                newState.Enter(this);
+
+                inputProcessors.Add(newState);
+            }
+        }
+        else if (context.canceled)
+        {
+            inputProcessors.RemoveAll((state) => {
+                if (state is JumpInputProcessor)
+                {
+                    state.Exit(this);
+                    return true;
+                }
+                else 
+                {
+                    return false;
+                }
+            });
         }
     }
 
     public void OnRun(InputAction.CallbackContext context)
     {
-        PlayerState state = currentState.OnRun(context, this);
-        TransitionToState(state);
-    }
-
-    private void TransitionToState(PlayerState newState)
-    {
-        if (newState != null)
+        if (context.performed)
         {
-            currentState.OnExit(this);
-            newState.OnEnter(this);
+            PlayerInputProcessor newState = new RunInputProcessor();
+            newState.Enter(this);
 
-            currentState = newState;
+            inputProcessors.Add(newState);
+        }
+        else if (context.canceled)
+        {
+            inputProcessors.RemoveAll((state) => {
+                if (state is RunInputProcessor)
+                {
+                    state.Exit(this);
+                    return true;
+                }
+                else 
+                {
+                    return false;
+                }
+            });
         }
     }
 }
