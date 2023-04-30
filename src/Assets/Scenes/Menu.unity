@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &23450621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6655442068998219177, guid: 680c1165a838b4bb483e161cdc0cf3bc, type: 3}
+  m_PrefabInstance: {fileID: 905921184}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &85584405 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3192153536349721521, guid: 664f8eab7482448bb88d91956c348574, type: 3}
@@ -4283,7 +4288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548515612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8.5, z: 0}
+  m_LocalPosition: {x: 0, y: 8.5, z: -0.4}
   m_LocalScale: {x: 3, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6794,7 +6799,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819523812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.20071818}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6807,7 +6812,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3192153536349721520, guid: 664f8eab7482448bb88d91956c348574, type: 3}
   m_PrefabInstance: {fileID: 3192153536435075492}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &890079094
+--- !u!114 &890079102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6816,11 +6821,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 890079086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74d8553712c4d4c989ef6cd63cb27125, type: 3}
+  m_Script: {fileID: 11500000, guid: 7728f8cba06674bf6813db17bc4d4856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startBox: {fileID: 1080374230}
-  startBoxPosition: {x: 2.5, y: 4}
+  startBoxPosition: {x: 3.5, y: 4}
 --- !u!1001 &893597565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6835,6 +6840,10 @@ PrefabInstance:
     - target: {fileID: 2953888951466586791, guid: 0def580be920b44ad85e1f3a03c3cf42, type: 3}
       propertyPath: sceneName
       value: SampleScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2953888951466586792, guid: 0def580be920b44ad85e1f3a03c3cf42, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2953888951466586793, guid: 0def580be920b44ad85e1f3a03c3cf42, type: 3}
       propertyPath: m_RootOrder
@@ -6907,7 +6916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 296899301861998489, guid: 680c1165a838b4bb483e161cdc0cf3bc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.20071818
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 296899301861998489, guid: 680c1165a838b4bb483e161cdc0cf3bc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6968,7 +6977,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1069876934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8.5, z: 0}
+  m_LocalPosition: {x: 0, y: 8.5, z: -0.2}
   m_LocalScale: {x: 3, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7031,6 +7040,11 @@ SpriteRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 296899301861998489, guid: 680c1165a838b4bb483e161cdc0cf3bc, type: 3}
   m_PrefabInstance: {fileID: 905921184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086682645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2953888951466586799, guid: 0def580be920b44ad85e1f3a03c3cf42, type: 3}
+  m_PrefabInstance: {fileID: 893597565}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1313967893
 PrefabInstance:
@@ -10477,7 +10491,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3192153536349721520, guid: 664f8eab7482448bb88d91956c348574, type: 3}
   m_PrefabInstance: {fileID: 1552781170}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1552781173
+--- !u!114 &1552781182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10486,23 +10500,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1552781172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d3be0d1a80448d9803f90ab18cce12, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b6ce8868993244c2a4dfc0b014403b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Credits
---- !u!114 &1552781174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552781172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a50f03ef2abaf4614864154c02f3d417, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneLoader: {fileID: 1552781173}
+  startBox: {fileID: 23450621}
+  truck: {fileID: 1086682645}
 --- !u!1 &1568408551
 GameObject:
   m_ObjectHideFlags: 0
