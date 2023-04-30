@@ -49,6 +49,6 @@ class RunningState: MovingState
 
     protected override float GetMoveSpeed(PlayerController player)
     {
-        return 8f;
+        return player.walkSpeed * 2;
     }
 }
