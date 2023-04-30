@@ -435,7 +435,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 7
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -634,7 +634,7 @@ MonoBehaviour:
   sfxAttack: {fileID: 5164352336401897211}
   sfxJump: {fileID: 4035859826720412259}
   maxForce: 8
-  jumpForce: 11
+  jumpForce: 15
   walkSpeed: 4
   runSpeed: 8
   currentSpeed: 4
