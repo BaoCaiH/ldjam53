@@ -68,10 +68,12 @@ class MovingState: PlayerState
 
     public PlayerState OnUpdate(PlayerController player)
     {
+        bool isRunning = player.input.actions["Run"].inProgress;
+
         if (isMoving)
         {
             player.rgbody.velocity = new Vector2(currentMoveInput.x * GetMoveSpeed(player), player.rgbody.velocity.y);
-            return null;
+            return isRunning ? new RunningState() : null;
         }
         else 
         {
