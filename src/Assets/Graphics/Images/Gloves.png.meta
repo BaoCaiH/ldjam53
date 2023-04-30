@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9ac57555d1feb4480bd0b2fb55d44c5b
+guid: 37a6c69f4721940369c8890ce81c7d45
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -165,127 +165,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Owlet_Monster_Attack2_6_0
+      name: Gloves_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+        x: 10
+        y: 42
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12916a1f7a72e4099b2966137d6df892
-      internalID: -296651224
+      spriteID: 3664538e625b44b788552ab5a58c4bee
+      internalID: -175489221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owlet_Monster_Attack2_6_1
+      name: Gloves_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+        x: 42
+        y: 42
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91ae1ceed140c4b5bb50367e1f6b6563
-      internalID: 773962774
+      spriteID: d4697fad9eafa418ba05f00550eecaa5
+      internalID: -254129750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owlet_Monster_Attack2_6_2
+      name: Gloves_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+        x: 74
+        y: 42
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae6a2776057ee4a9dbd581c9f276013a
-      internalID: -1567388956
+      spriteID: b7477a7097986466bba49bc52bb32b8a
+      internalID: 92314371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owlet_Monster_Attack2_6_3
+      name: Gloves_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+        x: 106
+        y: 42
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54915b7ea9e8e4a8eaa1e7def1e9d594
-      internalID: 8654754
+      spriteID: ee0935041ca674b49aa0926a73c2f4b9
+      internalID: -2046818579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owlet_Monster_Attack2_6_4
+      name: Gloves_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+        x: 138
+        y: 42
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61f0f62d1b1a24e32b02b011b53983ba
-      internalID: -72804282
+      spriteID: 956dccef6edea4b848b8b32c39b46c3e
+      internalID: -238180684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Owlet_Monster_Attack2_6_5
+      name: Gloves_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
+        x: 10
+        y: 10
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d700f91ab7d54969829ed85916f8599
-      internalID: 211677468
+      spriteID: 3a669b218939d4c5e90114f61a3b0614
+      internalID: 1423128136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gloves_6
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 10
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15af863dafc164f63a31eda4860b90ae
+      internalID: 1321907792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gloves_7
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 10
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32cabdb042bf48f38536573c7f03161
+      internalID: 2022689586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gloves_8
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 10
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 019193a2257fa494c9a89f1320e45761
+      internalID: 106182732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gloves_9
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 10
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae384d4c83ca44a40877716a60487812
+      internalID: 974211692
       vertices: []
       indices: 
       edges: []
@@ -301,12 +385,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Owlet_Monster_Attack2_6_1: 773962774
-      Owlet_Monster_Attack2_6_2: -1567388956
-      Owlet_Monster_Attack2_6_3: 8654754
-      Owlet_Monster_Attack2_6_4: -72804282
-      Owlet_Monster_Attack2_6_5: 211677468
-      Owlet_Monster_Attack2_6_0: -296651224
+      Gloves_3: -2046818579
+      Gloves_2: 92314371
+      Gloves_9: 974211692
+      Gloves_8: 106182732
+      Gloves_5: 1423128136
+      Gloves_0: -175489221
+      Gloves_6: 1321907792
+      Gloves_7: 2022689586
+      Gloves_4: -238180684
+      Gloves_1: -254129750
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
