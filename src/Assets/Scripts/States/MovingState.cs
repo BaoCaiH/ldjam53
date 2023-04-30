@@ -7,7 +7,7 @@ class MovingState: PlayerState
     private Vector2 currentMoveInput;
     private bool isMoving => currentMoveInput.x != 0;
 
-    public void OnEnter(PlayerController player)
+    public virtual void OnEnter(PlayerController player)
     {
         currentMoveInput = player.input.actions["Move"].ReadValue<Vector2>();
 
@@ -44,6 +44,18 @@ class MovingState: PlayerState
         }
     }
 
+    public virtual PlayerState OnRun(InputAction.CallbackContext context, PlayerController player)
+    {
+        if (context.started)
+        {
+            return new RunningState();
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     public PlayerState OnAttack(InputAction.CallbackContext context, PlayerController player)
     {
         return new AttackingState();
@@ -58,7 +70,7 @@ class MovingState: PlayerState
     {
         if (isMoving)
         {
-            player.rgbody.velocity = new Vector2(currentMoveInput.x * player.walkSpeed, player.rgbody.velocity.y);
+            player.rgbody.velocity = new Vector2(currentMoveInput.x * GetMoveSpeed(player), player.rgbody.velocity.y);
             return null;
         }
         else 
@@ -67,8 +79,13 @@ class MovingState: PlayerState
         }
     }
 
-    public void OnExit(PlayerController player)
+    public virtual void OnExit(PlayerController player)
     {
         player.animator.SetBool(AnimationParams.MOVE_FLAG, false);
+    }
+
+    protected virtual float GetMoveSpeed(PlayerController player)
+    {
+        return player.walkSpeed;
     }
 }
