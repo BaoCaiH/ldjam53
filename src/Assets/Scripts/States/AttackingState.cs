@@ -7,9 +7,11 @@ class AttackingState: PlayerState
 
     public void OnEnter(PlayerController player)
     {
-        player.hitboxZone.power = new Vector2(7f, 2f);
+        player.hitboxZone.power = new Vector2(7f, 2f) * player.facing;
 
         player.animator.SetTrigger(AnimationParams.ATTACK_TRIGGER);
+
+        player.sfxAttack.Play();
     }
 
     public PlayerState OnMove(InputAction.CallbackContext context, PlayerController player)

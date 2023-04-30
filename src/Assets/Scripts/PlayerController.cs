@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject angleGauge;
     [SerializeField] private GameObject angleMaxGauge;
     [SerializeField] private GameObject forceGauge;
+    [SerializeField] internal AudioSource sfxAttack;
+    [SerializeField] internal AudioSource sfxJump;
     internal Rigidbody2D rgbody;
     internal CapsuleCollider2D capCollider;
     internal Animator animator;
@@ -16,9 +18,11 @@ public class PlayerController : MonoBehaviour
     internal Transform forceTransform;
     internal PlayerAttackZone hitboxZone;
 
-    [SerializeField] 
-    internal float maxForce = 7f;
+    [SerializeField] internal float maxForce = 7f;
+    [SerializeField] internal float jumpForce = 10f;
+    [SerializeField] internal float walkSpeed = 4f;
 
+    internal Vector2 facing = new(1f, 1f);
     private Vector2 moveInput;
     public Vector2 power;
 
@@ -55,6 +59,7 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         PlayerState state = currentState.OnMove(context, this);
+
         TransitionToState(state);
     }
 

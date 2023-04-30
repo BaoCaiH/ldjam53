@@ -23,8 +23,10 @@ class JumpingState : PlayerState
     {
         Debug.Log("Enter Jumping State!");
 
-        jumpForce = 10f;
+        jumpForce = player.jumpForce;
         player.animator.SetBool(AnimationParams.JUMP_FLAG, true);
+
+        player.sfxJump.Play();
     }
 
     public PlayerState OnMove(InputAction.CallbackContext context, PlayerController player)
