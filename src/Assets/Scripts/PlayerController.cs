@@ -20,11 +20,16 @@ public class PlayerController : MonoBehaviour
     internal PlayerAttackZone hitboxZone;
     internal TouchingDirections touchingDirs;
 
-    [SerializeField] internal float maxForce = 7f;
-    [SerializeField] internal float jumpForce = 10f;
+
+    // Moving properties.
     [SerializeField] internal float walkSpeed = 4f;
     [SerializeField] internal float runSpeed = 8f;
     [SerializeField] internal float currentSpeed = 4f;
+    // Jump properties.
+    [SerializeField] internal float jumpForce = 10f;
+    [SerializeField] internal int remainingJump = 2;
+    // Attack properties.
+    [SerializeField] internal float maxForce = 7f;
 
     internal Vector2 facing = new(1f, 1f);
     private Vector2 moveInput;
@@ -118,10 +123,17 @@ public class PlayerController : MonoBehaviour
         {
             if (touchingDirs.IsGrounded)
             {
+                remainingJump = 2;
+            }
+
+            if (remainingJump > 0)
+            {
                 PlayerInputProcessor newState = new JumpInputProcessor();
                 newState.Enter(this);
 
                 inputProcessors.Add(newState);
+
+                remainingJump--;
             }
         }
         else if (context.canceled)
