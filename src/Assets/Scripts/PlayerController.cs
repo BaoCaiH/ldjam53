@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        Debug.Log("continue: " + context.ReadValue<Vector2>());
         PlayerState state = currentState.OnMove(context, this);
         TransitionToState(state);
     }
