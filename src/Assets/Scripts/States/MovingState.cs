@@ -6,8 +6,6 @@ class MovingState: PlayerState
     private Vector2 currentMoveInput;
     private bool isMoving => currentMoveInput.x != 0;
 
-    private float walkSpeed = 3f;
-
     internal MovingState(Vector2 moveInput)
     {
         currentMoveInput = moveInput;
@@ -55,7 +53,7 @@ class MovingState: PlayerState
     {
         if (isMoving)
         {
-            player.rgbody.velocity = new Vector2(currentMoveInput.x * walkSpeed, player.rgbody.velocity.y);
+            player.rgbody.velocity = new Vector2(currentMoveInput.x * player.walkSpeed, player.rgbody.velocity.y);
             return null;
         }
         else 

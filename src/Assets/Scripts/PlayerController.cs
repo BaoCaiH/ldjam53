@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject angleGauge;
     [SerializeField] private GameObject angleMaxGauge;
     [SerializeField] private GameObject forceGauge;
+    [SerializeField] internal AudioSource sfxAttack;
+    [SerializeField] internal AudioSource sfxJump;
     internal Rigidbody2D rgbody;
     internal CapsuleCollider2D capCollider;
     internal Animator animator;
@@ -16,8 +18,9 @@ public class PlayerController : MonoBehaviour
     internal Transform forceTransform;
     internal PlayerAttackZone hitboxZone;
 
-    [SerializeField] 
-    internal float maxForce = 7f;
+    [SerializeField] internal float maxForce = 7f;
+    [SerializeField] internal float jumpForce = 10f;
+    [SerializeField] internal float walkSpeed = 4f;
 
     private Vector2 moveInput;
     public Vector2 power;

@@ -10,6 +10,8 @@ class AttackingState: PlayerState
         player.hitboxZone.power = new Vector2(7f, 2f);
 
         player.animator.SetTrigger(AnimationParams.ATTACK_TRIGGER);
+
+        player.sfxAttack.Play();
     }
 
     public PlayerState OnMove(InputAction.CallbackContext context, PlayerController player)
