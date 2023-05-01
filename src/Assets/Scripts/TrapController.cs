@@ -11,7 +11,10 @@ public class TrapController : MonoBehaviour
         if (controller)
         {
             controller.Damage();
-            if (controller.IsBroken()) { Destroy(box); }
+            if (controller.IsBroken())
+            {
+                box.GetComponent<SpriteRenderer>().color = Color.gray;
+            }
         }
     }
 }

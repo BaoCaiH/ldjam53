@@ -5242,6 +5242,18 @@ PrefabInstance:
       propertyPath: rigidIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3955983350032087997, guid: 680c1165a838b4bb483e161cdc0cf3bc, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955983350032087997, guid: 680c1165a838b4bb483e161cdc0cf3bc, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3955983350032087997, guid: 680c1165a838b4bb483e161cdc0cf3bc, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6655442068998219177, guid: 680c1165a838b4bb483e161cdc0cf3bc, type: 3}
       propertyPath: m_Name
       value: Box (1)
