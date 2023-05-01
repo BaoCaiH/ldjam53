@@ -6,6 +6,16 @@ class SkyGlove : Weapon
 
     private Vector2 currentFacing = new Vector2(1, 1);
 
+    public void OnAttach(PlayerController player)
+    {
+
+    }
+
+    public void OnDetach(PlayerController player)
+    {
+
+    }
+
     public void Apply(GameObject gameObject)
     {
         Debug.Log($"[NormalGlove] Apply attack to {gameObject.name}");
