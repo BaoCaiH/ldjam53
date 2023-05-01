@@ -801,7 +801,7 @@ MonoBehaviour:
   walkSpeed: 4
   runSpeed: 8
   currentSpeed: 4
-  jumpForce: 15
+  jumpForce: 16
   remainingJump: 2
   maxForce: 8
 --- !u!114 &3138242808286967346
