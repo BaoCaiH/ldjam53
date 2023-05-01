@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,8 +22,10 @@ public class PlayerController : MonoBehaviour
 
     // Player properties.
     // Moving properties.
-    [SerializeField] internal float walkSpeed = 4f;
-    [SerializeField] internal float runSpeed = 8f;
+    [SerializeField] internal const float DEFAULT_WALK_SPEED = 4f;
+    [SerializeField] internal const float DEFAULT_RUN_SPEED = 8f;
+    [SerializeField] internal float walkSpeed = DEFAULT_WALK_SPEED;
+    [SerializeField] internal float runSpeed = DEFAULT_RUN_SPEED;
     [SerializeField] internal float currentSpeed = 4f;
     // Jump properties.
     [SerializeField] internal float jumpForce = 10f;
@@ -38,8 +39,10 @@ public class PlayerController : MonoBehaviour
 
 
     // Internal handling logic.
-    // Input processors
+    // Input processors.
     private List<PlayerInputProcessor> inputProcessors;
+    // Effects.
+    private List<Effect> effects;
 
     private void Awake()
     {
@@ -54,6 +57,7 @@ public class PlayerController : MonoBehaviour
         currentWeapon = new NormalGlove();
         inputProcessors = new List<PlayerInputProcessor>();
         gloveControllers = FindObjectsOfType(typeof(GloveController)) as GloveController[];
+        effects = new List<Effect>();
     }
 
     // Start is called before the first frame update
@@ -64,6 +68,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        ProcessInputs();
+        ProcessEffects();
+    }
+
+    private void ProcessInputs()
+    {
         for (int i = inputProcessors.Count - 1; i >= 0; i--)
         {
             if (!inputProcessors[i].Process(this))
@@ -71,6 +81,11 @@ public class PlayerController : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private void ProcessEffects()
+    {
+        effects.ForEach((effect) => effect.Apply(gameObject));
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -236,6 +251,16 @@ public class PlayerController : MonoBehaviour
             currentWeapon.OnAttach(this);
             currentWeapon.SetFacing(facing);
         }
+    }
+
+    public void OnEffectAdd(Effect effect)
+    {
+        effects.Add(effect);
+    }
+
+    public void OnEffectRemove<T>() where T : Effect
+    {
+        effects.RemoveAll((effect) => effect is T);
     }
 
     private int ActiveGloves()
