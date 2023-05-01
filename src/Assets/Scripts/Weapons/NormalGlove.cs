@@ -14,8 +14,8 @@ class NormalGlove : Weapon
         boxController.rgbody.velocity = power * currentFacing;
     }
 
-    public void SetFacing(Vector2 facing)
+    public void SetFacing(Vector2 playerFacing)
     {
-        currentFacing = facing;
+        currentFacing = playerFacing;
     }
 }
