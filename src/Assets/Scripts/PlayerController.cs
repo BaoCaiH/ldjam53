@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] internal float runSpeed = DEFAULT_RUN_SPEED;
     [SerializeField] internal float currentSpeed = 4f;
     // Jump properties.
-    [SerializeField] internal float jumpForce = 10f;
+    [SerializeField] internal float jumpForce = 16f;
     [SerializeField] internal int remainingJump = 2;
     // Attack properties.
     [SerializeField] internal float maxForce = 7f;
