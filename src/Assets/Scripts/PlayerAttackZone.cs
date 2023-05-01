@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttackZone : MonoBehaviour
 {
-    public Vector2 power = Vector2.zero;
-
     private void Awake()
     {
 
@@ -15,9 +11,10 @@ public class PlayerAttackZone : MonoBehaviour
     {
         if (collision.gameObject.layer == 7)
         {
+            PlayerController playerController = GetComponentInParent<PlayerController>();
             BoxController boxController = collision.gameObject.GetComponent<BoxController>();
-            boxController.Launch(power);
-            power = Vector2.zero;
+
+            boxController.ReceiveAttack(playerController.currentWeapon);
         }
     }
 
