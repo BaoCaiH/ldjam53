@@ -115,7 +115,7 @@ public class TruckController : MonoBehaviour
         isTransitionIn = false;
     }
 
-    private void PostLeaving()
+    internal void PostLeaving()
     {
         TransitPrep(
             (Vector2)cam.transform.position - offsetDistance,
