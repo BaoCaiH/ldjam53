@@ -2,7 +2,7 @@ using UnityEngine;
 
 class SkyGlove : Weapon
 {
-    public Vector2 power = new Vector2(2, 7);
+    public Vector2 power = new Vector2(2, 10);
 
     private Vector2 currentFacing = new Vector2(1, 1);
 

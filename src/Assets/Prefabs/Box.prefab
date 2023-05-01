@@ -146,4 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc0a88b3c3ead624493decdbefb8f6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 21300000, guid: 320f2f37d1407414cbc8a6fa3bd21d24, type: 3}
   damagedSprite: {fileID: 21300000, guid: 0231c9e5c27ef42ba8aaf3382327af43, type: 3}
+  rigidIndex: 2

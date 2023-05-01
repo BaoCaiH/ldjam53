@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class BoxController : MonoBehaviour
 {
+    [SerializeField] private Sprite normalSprite;
     [SerializeField] private Sprite damagedSprite;
     [SerializeField] private int rigidIndex = 2;
 
@@ -14,6 +15,7 @@ public class BoxController : MonoBehaviour
     {
         rgbody = GetComponent<Rigidbody2D>();
         incomingAttacks = new List<Weapon>();
+        GetComponent<SpriteRenderer>().sprite = rigidIndex == 1 ? damagedSprite : normalSprite;
     }
 
     private void FixedUpdate()
