@@ -5094,6 +5094,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gloves
       objectReference: {fileID: 0}
+    - target: {fileID: 6096834206957124672, guid: 005b3fc6f778c43c7a58232b71511917, type: 3}
+      propertyPath: isAvailable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 005b3fc6f778c43c7a58232b71511917, type: 3}
 --- !u!224 &827031103 stripped
@@ -5118,7 +5122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2953888951466586791, guid: 0def580be920b44ad85e1f3a03c3cf42, type: 3}
       propertyPath: sceneName
-      value: Menu
+      value: Level6
       objectReference: {fileID: 0}
     - target: {fileID: 2953888951466586792, guid: 0def580be920b44ad85e1f3a03c3cf42, type: 3}
       propertyPath: m_SortingLayer
