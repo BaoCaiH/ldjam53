@@ -66,6 +66,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        ProcessDirectionEffects();
+    }
+
     private void FixedUpdate()
     {
         ProcessInputs();
@@ -86,6 +91,15 @@ public class PlayerController : MonoBehaviour
     private void ProcessEffects()
     {
         effects.ForEach((effect) => effect.Apply(gameObject));
+    }
+
+    private void ProcessDirectionEffects()
+    {
+
+        if (touchingDirs.IsGrounded)
+        {
+            remainingJump = 2;
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -125,7 +139,7 @@ public class PlayerController : MonoBehaviour
             {
                 currentWeapon.Apply(gameObject);
             }
-            else 
+            else
             {
                 inputProcessors.Add(newState);
             }
@@ -151,12 +165,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (touchingDirs.IsGrounded)
-            {
-                remainingJump = 2;
-            }
-
-            if (remainingJump > 0)
+            if (remainingJump > 1)
             {
                 PlayerInputProcessor newState = new JumpInputProcessor();
                 newState.Enter(this);

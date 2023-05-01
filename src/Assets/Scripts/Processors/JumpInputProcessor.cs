@@ -25,18 +25,19 @@ class JumpInputProcessor : PlayerInputProcessor
             jumpForce = 0f;
         }
 
-        if (player.rgbody.velocity.y <= 0)
-        {
-            // Player is going down. Start casting.
-            int result = player.capCollider.Cast(Vector2.down, castFilter, groundHits, groundDistance);
-            bool isGrounded = result > 0;
+        return true;
+        // if (player.rgbody.velocity.y <= 0)
+        // {
+        //     // Player is going down. Start casting.
+        //     int result = player.capCollider.Cast(Vector2.down, castFilter, groundHits, groundDistance);
+        //     bool isGrounded = result > 0;
 
-            return isGrounded ? true : false;
-        }
-        else
-        {
-            return false;
-        }
+        //     return isGrounded ? true : false;
+        // }
+        // else
+        // {
+        //     return false;
+        // }
     }
 
     public void Exit(PlayerController player)
