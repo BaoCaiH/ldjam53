@@ -198,5 +198,6 @@ public class PlayerController : MonoBehaviour
                 currentWeapon = new BackwardGlove();
                 break;
         }
+        currentWeapon.SetFacing(facing);
     }
 }
