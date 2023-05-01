@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,11 +22,13 @@ public class PlayerController : MonoBehaviour
 
     // Player properties.
     // Moving properties.
-    [SerializeField] internal float walkSpeed = 4f;
-    [SerializeField] internal float runSpeed = 8f;
+    [SerializeField] internal const float DEFAULT_WALK_SPEED = 4f;
+    [SerializeField] internal const float DEFAULT_RUN_SPEED = 8f;
+    [SerializeField] internal float walkSpeed = DEFAULT_WALK_SPEED;
+    [SerializeField] internal float runSpeed = DEFAULT_RUN_SPEED;
     [SerializeField] internal float currentSpeed = 4f;
     // Jump properties.
-    [SerializeField] internal float jumpForce = 10f;
+    [SerializeField] internal float jumpForce = 16f;
     [SerializeField] internal int remainingJump = 2;
     // Attack properties.
     [SerializeField] internal float maxForce = 7f;
@@ -38,8 +39,10 @@ public class PlayerController : MonoBehaviour
 
 
     // Internal handling logic.
-    // Input processors
+    // Input processors.
     private List<PlayerInputProcessor> inputProcessors;
+    // Effects.
+    private List<Effect> effects;
 
     private void Awake()
     {
@@ -54,6 +57,7 @@ public class PlayerController : MonoBehaviour
         currentWeapon = new NormalGlove();
         inputProcessors = new List<PlayerInputProcessor>();
         gloveControllers = FindObjectsOfType(typeof(GloveController)) as GloveController[];
+        effects = new List<Effect>();
     }
 
     // Start is called before the first frame update
@@ -62,7 +66,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        ProcessDirectionEffects();
+    }
+
     private void FixedUpdate()
+    {
+        ProcessInputs();
+        ProcessEffects();
+    }
+
+    private void ProcessInputs()
     {
         for (int i = inputProcessors.Count - 1; i >= 0; i--)
         {
@@ -70,6 +85,20 @@ public class PlayerController : MonoBehaviour
             {
                 break;
             }
+        }
+    }
+
+    private void ProcessEffects()
+    {
+        effects.ForEach((effect) => effect.Apply(gameObject));
+    }
+
+    private void ProcessDirectionEffects()
+    {
+
+        if (touchingDirs.IsGrounded)
+        {
+            remainingJump = 2;
         }
     }
 
@@ -110,7 +139,7 @@ public class PlayerController : MonoBehaviour
             {
                 currentWeapon.Apply(gameObject);
             }
-            else 
+            else
             {
                 inputProcessors.Add(newState);
             }
@@ -136,12 +165,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (touchingDirs.IsGrounded)
-            {
-                remainingJump = 2;
-            }
-
-            if (remainingJump > 0)
+            if (remainingJump > 1)
             {
                 PlayerInputProcessor newState = new JumpInputProcessor();
                 newState.Enter(this);
@@ -236,6 +260,16 @@ public class PlayerController : MonoBehaviour
             currentWeapon.OnAttach(this);
             currentWeapon.SetFacing(facing);
         }
+    }
+
+    public void OnEffectAdd(Effect effect)
+    {
+        effects.Add(effect);
+    }
+
+    public void OnEffectRemove<T>() where T : Effect
+    {
+        effects.RemoveAll((effect) => effect is T);
     }
 
     private int ActiveGloves()
