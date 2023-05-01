@@ -19,7 +19,7 @@ public class WearGlove : MonoBehaviour
         {
             glove.Doff();
         }
-        if (keyPressed < 4 && keyPressed > -1)
+        if (keyPressed < 5 && keyPressed > -1)
         {
             Debug.Log($"Don {gloves[keyPressed]}");
             gloves[keyPressed].Don();
