@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         touchingDirs = GetComponent<TouchingDirections>();
         angleTransform = angleGauge.transform;
         forceTransform = forceGauge.transform;
-        currentWeapon = new ResetGlove();
+        currentWeapon = new NormalGlove();
         inputProcessors = new List<PlayerInputProcessor>();
     }
 
@@ -177,6 +177,26 @@ public class PlayerController : MonoBehaviour
                     return false;
                 }
             });
+        }
+    }
+
+    public void OnWear(InputAction.CallbackContext context)
+    {
+        int.TryParse(context.control.name, out int keyPressed);
+        switch (keyPressed)
+        {
+            case 0:
+                currentWeapon = new ResetGlove();
+                break;
+            case 1:
+                currentWeapon = new NormalGlove();
+                break;
+            case 2:
+                currentWeapon = new SkyGlove();
+                break;
+            case 3:
+                currentWeapon = new BackwardGlove();
+                break;
         }
     }
 }

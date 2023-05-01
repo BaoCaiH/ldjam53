@@ -10,10 +10,6 @@ public class WearGlove : MonoBehaviour
     private void Awake()
     {
         gloves = GetComponentsInChildren<GloveController>();
-        foreach (GloveController glove in gloves)
-        {
-            Debug.Log(glove);
-        }
     }
 
     public void OnWear(InputAction.CallbackContext context)
@@ -23,7 +19,7 @@ public class WearGlove : MonoBehaviour
         {
             glove.Doff();
         }
-        if (keyPressed < 4)
+        if (keyPressed < 4 && keyPressed > -1)
         {
             Debug.Log($"Don {gloves[keyPressed]}");
             gloves[keyPressed].Don();
