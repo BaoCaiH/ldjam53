@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    // Player components.
     [SerializeField] private GameObject hitbox;
     [SerializeField] private GameObject angleGauge;
     [SerializeField] private GameObject angleMaxGauge;
@@ -20,7 +21,7 @@ public class PlayerController : MonoBehaviour
     internal PlayerAttackZone hitboxZone;
     internal TouchingDirections touchingDirs;
 
-
+    // Player properties.
     // Moving properties.
     [SerializeField] internal float walkSpeed = 4f;
     [SerializeField] internal float runSpeed = 8f;
@@ -30,11 +31,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] internal int remainingJump = 2;
     // Attack properties.
     [SerializeField] internal float maxForce = 7f;
-
     internal Vector2 facing = new(1f, 1f);
-    private Vector2 moveInput;
-    public Vector2 power;
+    [SerializeField] internal Weapon currentWeapon;
 
+
+    // Internal handling logic.
+    // Input processors
     private List<PlayerInputProcessor> inputProcessors;
 
     private void Awake()
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour
         touchingDirs = GetComponent<TouchingDirections>();
         angleTransform = angleGauge.transform;
         forceTransform = forceGauge.transform;
+        currentWeapon = new NormalGlove();
         inputProcessors = new List<PlayerInputProcessor>();
     }
 
