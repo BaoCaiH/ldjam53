@@ -19,10 +19,14 @@ public class WearGlove : MonoBehaviour
         {
             glove.Doff();
         }
-        if (keyPressed < 5 && keyPressed > -1)
+        if (keyPressed < gloves.Length && keyPressed > -1 && gloves[keyPressed].IsAvailable())
         {
             Debug.Log($"Don {gloves[keyPressed]}");
             gloves[keyPressed].Don();
+        }
+        else
+        {
+            gloves[1].Don();
         };
     }
 }
