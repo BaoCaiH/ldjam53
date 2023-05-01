@@ -376,7 +376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ddbcee9d94ac84784b006e0741a46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: {x: 7, y: 2}
 --- !u!1 &8569758091158415296
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,6 +663,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: be1f7bf9-ce05-4d13-bca7-abf229fa2280
     m_ActionName: Player/Run[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6f44ff67-6110-44be-838c-5f7f0c6bc75a
+    m_ActionName: Player/Wear[/Keyboard/0,/Keyboard/1,/Keyboard/2,/Keyboard/3]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -693,7 +696,6 @@ MonoBehaviour:
   jumpForce: 15
   remainingJump: 2
   maxForce: 8
-  power: {x: 0, y: 0}
 --- !u!114 &3138242808286967346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,7 +740,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7d536642e68d148ab9a9477149a69a6d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -834,7 +836,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 126e668aeca0d49b683f02a45dc34ca6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
