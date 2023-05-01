@@ -335,6 +335,17 @@
                     "action": "Wear",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b07949ba-3879-4319-bebe-b079c9d25786",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Wear",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
