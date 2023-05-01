@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         touchingDirs = GetComponent<TouchingDirections>();
         angleTransform = angleGauge.transform;
         forceTransform = forceGauge.transform;
-        currentWeapon = new BackwardGlove();
+        currentWeapon = new ResetGlove();
         inputProcessors = new List<PlayerInputProcessor>();
     }
 
