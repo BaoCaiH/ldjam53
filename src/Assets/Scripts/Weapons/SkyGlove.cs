@@ -1,8 +1,8 @@
 using UnityEngine;
 
-class NormalGlove : Weapon
+class SkyGlove : Weapon
 {
-    public Vector2 power = new Vector2(7, 2);
+    public Vector2 power = new Vector2(2, 7);
 
     private Vector2 currentFacing = new Vector2(1, 1);
 
