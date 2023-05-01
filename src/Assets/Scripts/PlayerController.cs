@@ -81,13 +81,14 @@ public class PlayerController : MonoBehaviour
         }
         else if (context.canceled)
         {
-            inputProcessors.RemoveAll((state) => {
+            inputProcessors.RemoveAll((state) =>
+            {
                 if (state is MoveInputProcessor)
                 {
                     state.Exit(this);
                     return true;
                 }
-                else 
+                else
                 {
                     return false;
                 }
@@ -106,13 +107,14 @@ public class PlayerController : MonoBehaviour
         }
         else if (context.canceled)
         {
-            inputProcessors.RemoveAll((state) => {
+            inputProcessors.RemoveAll((state) =>
+            {
                 if (state is AttackInputProcessor)
                 {
                     state.Exit(this);
                     return true;
                 }
-                else 
+                else
                 {
                     return false;
                 }
@@ -141,13 +143,14 @@ public class PlayerController : MonoBehaviour
         }
         else if (context.canceled)
         {
-            inputProcessors.RemoveAll((state) => {
+            inputProcessors.RemoveAll((state) =>
+            {
                 if (state is JumpInputProcessor)
                 {
                     state.Exit(this);
                     return true;
                 }
-                else 
+                else
                 {
                     return false;
                 }
@@ -166,13 +169,14 @@ public class PlayerController : MonoBehaviour
         }
         else if (context.canceled)
         {
-            inputProcessors.RemoveAll((state) => {
+            inputProcessors.RemoveAll((state) =>
+            {
                 if (state is RunInputProcessor)
                 {
                     state.Exit(this);
                     return true;
                 }
-                else 
+                else
                 {
                     return false;
                 }
@@ -182,22 +186,32 @@ public class PlayerController : MonoBehaviour
 
     public void OnWear(InputAction.CallbackContext context)
     {
-        int.TryParse(context.control.name, out int keyPressed);
-        switch (keyPressed)
+        if (context.performed)
         {
-            case 0:
-                currentWeapon = new ResetGlove();
-                break;
-            case 1:
-                currentWeapon = new NormalGlove();
-                break;
-            case 2:
-                currentWeapon = new SkyGlove();
-                break;
-            case 3:
-                currentWeapon = new BackwardGlove();
-                break;
+            currentWeapon.OnDetach(this);
+
+            int.TryParse(context.control.name, out int keyPressed);
+            switch (keyPressed)
+            {
+                case 0:
+                    currentWeapon = new ResetGlove();
+                    break;
+                case 1:
+                    currentWeapon = new NormalGlove();
+                    break;
+                case 2:
+                    currentWeapon = new SkyGlove();
+                    break;
+                case 3:
+                    currentWeapon = new BackwardGlove();
+                    break;
+                case 4:
+                    currentWeapon = new HeavyGlove();
+                    break;
+            }
+
+            currentWeapon.OnAttach(this);
+            currentWeapon.SetFacing(facing);
         }
-        currentWeapon.SetFacing(facing);
     }
 }
