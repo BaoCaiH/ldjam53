@@ -27,7 +27,10 @@ class MoveInputProcessor : PlayerInputProcessor
 
     public bool Process(PlayerController player)
     {
-        player.rgbody.velocity = new Vector2(currentMoveInput.x * player.currentSpeed, player.rgbody.velocity.y);
+        if (!player.touchingDirs.IsOnWall)
+        {
+            player.rgbody.velocity = new Vector2(currentMoveInput.x * player.currentSpeed, player.rgbody.velocity.y);
+        }
 
         return true;
     }
