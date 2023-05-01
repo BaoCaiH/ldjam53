@@ -6209,6 +6209,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gloves
       objectReference: {fileID: 0}
+    - target: {fileID: 3945140513854576705, guid: 005b3fc6f778c43c7a58232b71511917, type: 3}
+      propertyPath: isAvailable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3945140515183336600, guid: 005b3fc6f778c43c7a58232b71511917, type: 3}
+      propertyPath: isAvailable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3945140515337915926, guid: 005b3fc6f778c43c7a58232b71511917, type: 3}
+      propertyPath: isAvailable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096834206957124672, guid: 005b3fc6f778c43c7a58232b71511917, type: 3}
+      propertyPath: isAvailable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 005b3fc6f778c43c7a58232b71511917, type: 3}
 --- !u!224 &1235926891 stripped
