@@ -202,18 +202,23 @@ public class PlayerController : MonoBehaviour
             {
                 case 0:
                     currentWeapon = new ResetGlove();
+                    hitboxZone.SetSprite("reset");
                     break;
                 case 1:
                     currentWeapon = new NormalGlove();
+                    hitboxZone.SetSprite("normal");
                     break;
                 case 2:
                     currentWeapon = new SkyGlove();
+                    hitboxZone.SetSprite("sky");
                     break;
                 case 3:
                     currentWeapon = new BackwardGlove();
+                    hitboxZone.SetSprite("backward");
                     break;
                 case 4:
                     currentWeapon = new HeavyGlove();
+                    hitboxZone.SetSprite("heavy");
                     break;
             }
 

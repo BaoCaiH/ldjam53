@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public delegate void PostTransitExec();
 
@@ -60,11 +61,19 @@ public class TruckController : MonoBehaviour
         {
             Transit(PostTransitOut);
         }
+
+        //Debug.Log($"Broken box: {CheckBrokenBox()}");
+        //CheckBrokenBox();
+        if (CheckBrokenBox() && !isTransitionOut)
+        {
+            sceneLoader.sceneName = SceneManager.GetActiveScene().name;
+            PostLeaving();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isTransitionIn) { return; }
+        if (isTransitionIn || isLeaving || isTransitionOut) { return; }
         GameObject box = collision.gameObject;
         Destroy(box);
     }
@@ -129,5 +138,15 @@ public class TruckController : MonoBehaviour
     private void PostTransitOut()
     {
         sceneLoader.Load();
+    }
+
+    private bool CheckBrokenBox()
+    {
+        for (int i = 0; i < boxes.childCount; i++)
+        {
+            BoxController controller = boxes.GetChild(i).GetComponent<BoxController>();
+            if (controller.IsBroken()) { return true; }
+        }
+        return false;
     }
 }
