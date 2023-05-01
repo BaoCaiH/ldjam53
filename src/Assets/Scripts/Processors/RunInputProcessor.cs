@@ -2,7 +2,7 @@ class RunInputProcessor : PlayerInputProcessor
 {
     public void Enter(PlayerController player)
     {
-        player.currentSpeed = 8f;
+        player.currentSpeed = player.runSpeed;
         player.animator.SetBool(AnimationParams.RUN_FLAG, true);
     }
 
@@ -13,7 +13,7 @@ class RunInputProcessor : PlayerInputProcessor
 
     public void Exit(PlayerController player)
     {
-        player.currentSpeed = 4f;
+        player.currentSpeed = player.walkSpeed;
         player.animator.SetBool(AnimationParams.RUN_FLAG, false);
     }
 }
