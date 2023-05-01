@@ -421,6 +421,68 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
+--- !u!1001 &412525091
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1568408553}
+    m_Modifications:
+    - target: {fileID: 2130020684580075364, guid: b0d35b40919f140a29a65284fcbe7254, type: 3}
+      propertyPath: m_Name
+      value: FramedImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130020684580075365, guid: b0d35b40919f140a29a65284fcbe7254, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130020684580075365, guid: b0d35b40919f140a29a65284fcbe7254, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130020684580075365, guid: b0d35b40919f140a29a65284fcbe7254, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130020684580075365, guid: b0d35b40919f140a29a65284fcbe7254, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130020684580075365, guid: b0d35b40919f140a29a65284fcbe7254, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130020684580075365, guid: b0d35b40919f140a29a65284fcbe7254, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130020684580075365, guid: b0d35b40919f140a29a65284fcbe7254, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130020684580075365, guid: b0d35b40919f140a29a65284fcbe7254, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130020684580075365, guid: b0d35b40919f140a29a65284fcbe7254, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130020684580075365, guid: b0d35b40919f140a29a65284fcbe7254, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130020684580075365, guid: b0d35b40919f140a29a65284fcbe7254, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0d35b40919f140a29a65284fcbe7254, type: 3}
+--- !u!4 &412525092 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2130020684580075365, guid: b0d35b40919f140a29a65284fcbe7254, type: 3}
+  m_PrefabInstance: {fileID: 412525091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &423753739
 GameObject:
   m_ObjectHideFlags: 0
@@ -3223,7 +3285,7 @@ SpriteRenderer:
   m_SortingLayer: -4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a4681117ef0694d2baa93d89c051274a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.627451, g: 0.627451, b: 0.627451, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8200,6 +8262,7 @@ Transform:
   - {fileID: 548515613}
   - {fileID: 1069876935}
   - {fileID: 566234501}
+  - {fileID: 412525092}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8796,6 +8859,18 @@ PrefabInstance:
     - target: {fileID: 3497452430993108010, guid: 005b3fc6f778c43c7a58232b71511917, type: 3}
       propertyPath: m_Name
       value: Gloves
+      objectReference: {fileID: 0}
+    - target: {fileID: 3945140513854576705, guid: 005b3fc6f778c43c7a58232b71511917, type: 3}
+      propertyPath: isAvailable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3945140515183336600, guid: 005b3fc6f778c43c7a58232b71511917, type: 3}
+      propertyPath: isAvailable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6096834206957124672, guid: 005b3fc6f778c43c7a58232b71511917, type: 3}
+      propertyPath: isAvailable
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 005b3fc6f778c43c7a58232b71511917, type: 3}
