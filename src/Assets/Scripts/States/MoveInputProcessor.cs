@@ -19,6 +19,7 @@ class MoveInputProcessor : PlayerInputProcessor
             // Player has changed direction so here we'll flip the scale.
             player.transform.localScale *= flipper;
             player.facing *= flipper;
+            player.currentWeapon.SetFacing(player.facing);
         }
 
         player.animator.SetBool(AnimationParams.MOVE_FLAG, true);

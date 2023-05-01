@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,30 +6,31 @@ public class BoxController : MonoBehaviour
     [SerializeField] private Sprite damagedSprite;
     [SerializeField] private int rigidIndex = 2;
 
-    private Rigidbody2D rgbody;
+    internal Rigidbody2D rgbody;
     private Vector2 incomingForce;
+    private List<Weapon> incomingAttacks;
 
     private void Awake()
     {
         rgbody = GetComponent<Rigidbody2D>();
+        incomingAttacks = new List<Weapon>();
     }
 
     private void FixedUpdate()
     {
-        UpdateMovement();
+        ApplyAttack();
     }
 
-    private void UpdateMovement()
+    private void ApplyAttack()
     {
-        if (incomingForce != Vector2.zero) {
-            rgbody.velocity = incomingForce;
-            incomingForce = Vector2.zero;
-        }
+        incomingAttacks.ForEach((attack) => attack.Apply(gameObject));
+        incomingAttacks.Clear();
     }
 
-    public void Launch(Vector2 force)
+    public void ReceiveAttack(Weapon weapon)
     {
-        incomingForce = force;
+        Debug.Log($"[BoxController] Receive attack from {weapon.GetType()}");
+        incomingAttacks.Add(weapon);
     }
 
     public void Damage()

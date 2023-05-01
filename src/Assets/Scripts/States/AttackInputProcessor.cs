@@ -5,7 +5,7 @@ class AttackInputProcessor : PlayerInputProcessor
 {
     public void Enter(PlayerController player)
     {
-        player.hitboxZone.power = new Vector2(7f, 2f) * player.facing;
+        //player.hitboxZone.power = new Vector2(7f, 2f) * player.facing;
 
         player.animator.SetTrigger(AnimationParams.ATTACK_TRIGGER);
 
