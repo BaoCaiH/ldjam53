@@ -8936,7 +8936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBox: {fileID: 1080374230}
-  startBoxPosition: {x: 3.5, y: 4}
+  startBoxPosition: {x: 4.5, y: 4}
 --- !u!1001 &893597565
 PrefabInstance:
   m_ObjectHideFlags: 0
