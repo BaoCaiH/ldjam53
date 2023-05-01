@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] internal float maxForce = 7f;
     internal Vector2 facing = new(1f, 1f);
     [SerializeField] internal Weapon currentWeapon;
+    // Glove properties
+    internal GloveController[] gloveControllers;
 
 
     // Internal handling logic.
@@ -51,6 +53,7 @@ public class PlayerController : MonoBehaviour
         forceTransform = forceGauge.transform;
         currentWeapon = new NormalGlove();
         inputProcessors = new List<PlayerInputProcessor>();
+        gloveControllers = FindObjectsOfType(typeof(GloveController)) as GloveController[];
     }
 
     // Start is called before the first frame update
@@ -198,32 +201,50 @@ public class PlayerController : MonoBehaviour
             currentWeapon.OnDetach(this);
 
             int.TryParse(context.control.name, out int keyPressed);
-            switch (keyPressed)
+
+            if (keyPressed == 0 && ActiveGloves() > 1)
             {
-                case 0:
-                    currentWeapon = new ResetGlove();
-                    hitboxZone.SetSprite("reset");
-                    break;
-                case 1:
-                    currentWeapon = new NormalGlove();
-                    hitboxZone.SetSprite("normal");
-                    break;
-                case 2:
-                    currentWeapon = new SkyGlove();
-                    hitboxZone.SetSprite("sky");
-                    break;
-                case 3:
-                    currentWeapon = new BackwardGlove();
-                    hitboxZone.SetSprite("backward");
-                    break;
-                case 4:
-                    currentWeapon = new HeavyGlove();
-                    hitboxZone.SetSprite("heavy");
-                    break;
+                currentWeapon = new ResetGlove();
+                hitboxZone.SetSprite("reset");
+            }
+            else if (keyPressed == 1 && keyPressed < ActiveGloves())
+            {
+                currentWeapon = new NormalGlove();
+                hitboxZone.SetSprite("normal");
+            }
+            else if (keyPressed == 2 && keyPressed < ActiveGloves())
+            {
+                currentWeapon = new SkyGlove();
+                hitboxZone.SetSprite("sky");
+            }
+            else if (keyPressed == 3 && keyPressed < ActiveGloves())
+            {
+                currentWeapon = new BackwardGlove();
+                hitboxZone.SetSprite("backward");
+            }
+            else if (keyPressed == 4 && keyPressed < ActiveGloves())
+            {
+                currentWeapon = new HeavyGlove();
+                hitboxZone.SetSprite("heavy");
+            }
+            else
+            {
+                currentWeapon = new NormalGlove();
+                hitboxZone.SetSprite("normal");
             }
 
             currentWeapon.OnAttach(this);
             currentWeapon.SetFacing(facing);
         }
+    }
+
+    private int ActiveGloves()
+    {
+        int cnt = 0;
+        for (int i = 0; i < gloveControllers.Length; i++)
+        {
+            cnt += gloveControllers[i].IsAvailable() ? 1 : 0;
+        }
+        return cnt;
     }
 }

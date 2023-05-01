@@ -54,7 +54,8 @@ MonoBehaviour:
   activeSprite: {fileID: -471514417, guid: 65ef1d93ba55a4d858c4469f4ba58fe1, type: 3}
   inactiveSprite: {fileID: 1881316934, guid: 65ef1d93ba55a4d858c4469f4ba58fe1, type: 3}
   glove: {fileID: 7469244570126947791}
-  active: 1
+  button: {fileID: 7469244570363250751}
+  isAvailable: 1
 --- !u!1 &7469244570126947791
 GameObject:
   m_ObjectHideFlags: 0
