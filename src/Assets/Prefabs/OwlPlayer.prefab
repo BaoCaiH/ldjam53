@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 4035859826720412259}
   m_Layer: 6
   m_Name: OwlPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -604,7 +604,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.027264833, y: 0.17049101}
-  m_Size: {x: 0.4001689, y: 0.740982}
+  m_Size: {x: 0.4, y: 0.68}
   m_Direction: 0
 --- !u!95 &4427319540008139775
 Animator:
