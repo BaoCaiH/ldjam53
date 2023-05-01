@@ -103,7 +103,14 @@ public class PlayerController : MonoBehaviour
             PlayerInputProcessor newState = new AttackInputProcessor();
             newState.Enter(this);
 
-            inputProcessors.Add(newState);
+            if (currentWeapon is ResetGlove)
+            {
+                currentWeapon.Apply(gameObject);
+            }
+            else 
+            {
+                inputProcessors.Add(newState);
+            }
         }
         else if (context.canceled)
         {
